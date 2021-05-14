@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ContatoController {
@@ -30,11 +31,11 @@ public class ContatoController {
         return modelAndView;
     }
     
-    @GetMapping(value="/detalhes/")
-    public ModelAndView getDetalhes() {
+    @GetMapping(value="/detalhes/{id}")
+    public ModelAndView getDetalhes(@PathVariable Long id) {
         // ler contato do banco pelo id 1
         Contato contato = new Contato();
-        contato = contatoRepository.findById(1L).get();
+        contato = contatoRepository.findById(id).get();
 
         // instanciar o template 
         ModelAndView modelAndView = new ModelAndView("detalhes");
@@ -46,7 +47,6 @@ public class ContatoController {
         return modelAndView;
     }
     
-
     @GetMapping(value="/cadastro")
     public ModelAndView getCadastro() {
         ModelAndView modelAndView = new ModelAndView("cadastro");
@@ -76,5 +76,4 @@ public class ContatoController {
         // retornar
         return modelAndView;
     }
-    
 }
