@@ -13,6 +13,8 @@
     <ul>
         <li th:each="contato : ${lista}">
             <a th:href="@{/detalhes/{id}(id=${contato.id})}" th:text="${contato.nome}">Nome</a>
+            <a th:href="@{/editar/{id}(id=${contato.id})}">Editar</a>
+            <a th:href="@{/deletar/{id}(id=${contato.id})}">Deletar</a>
         </li> 
     </ul>
 
