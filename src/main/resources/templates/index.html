@@ -11,8 +11,9 @@
     <h1>Agenda</h1>
 
     <ul>
-        <li th:each="contato : ${lista}" th:text="${contato.nome}"></li>
- 
+        <li th:each="contato : ${lista}">
+            <a th:href="@{/detalhes/{id}(id=${contato.id})}" th:text="${contato.nome}">Nome</a>
+        </li> 
     </ul>
 
     <a href="/cadastro">Novo contato</a>
