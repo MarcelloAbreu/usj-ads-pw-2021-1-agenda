@@ -25,7 +25,7 @@ public class ContatoController {
         // instanciar um template
         ModelAndView modelAndView = new ModelAndView("index");
         //preencher o template com a lista 
-        modelAndView.addObject("lista", lista)
+        modelAndView.addObject("lista", lista);
         //retornar o template
         return modelAndView;
     }
