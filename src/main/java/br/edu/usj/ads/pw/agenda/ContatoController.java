@@ -47,20 +47,11 @@ public class ContatoController {
         return modelAndView;
     }
     @GetMapping(value="/deletar/{id}")
-    public ModelAndView getDeletar(@PathVariable Long id) {
+    public String getDeletar(@PathVariable Long id) {
         // deletar o objeto com o id passado pelo parametro 
-      
-
-        // instanciar o template(index)
-        ModelAndView modelAndView = new ModelAndView("index");
-
-        // preencher o template com a lista
-        List<Contato> lista = new ArrayList<>();
-        lista = contatoRepository.findAll();
-
-        modelAndView.addObject("lista", lista);
-        // retornar o template
-        return modelAndView;
+      contatoRepository.deleteById(id);
+        // retornar para / (raiz)
+        return "redirect:/";
     }
     
     @GetMapping(value="/cadastro")
