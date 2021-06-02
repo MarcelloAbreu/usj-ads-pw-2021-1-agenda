@@ -4,27 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
     <title>Agenda - Novo contato</title>
 </head>
 <body>
-    <h1>Agenda</h1>
-
+    <div class="cointaner-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Agenda</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link" href="/cadastro">Novo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </nav>
+    <div class="container">        
     <form method="POST" action="/adicionar">
+        <div class="mb-3">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" th:value="${contato.nome}" />
+        <input type="text" class="form-control" name="nome" id="nome" th:value="${contato.nome}" />
+        </div>
 
-        <label for="tipo">Tipo:</label>
-        <input type="text" name="tipo" id="tipo" th:value="${contato.tipo}" />
-
-        <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" th:value="${contato.telefone}" />
-
-        <label for="id">Identificador:</label>
+        <div class="mb-3">
+            <label for="telefone">Telefone:</label>
+            <select>
+                <option value=""></option>
+                <option value="Comercial">Comercial</option>
+                <option value="Residencial">Residencial</option>
+                <option value="Celular">Celular</option>
+            </select>
+            <input type="text" class="form-control" name="tipo" id="tipo" th:value="${contato.tipo}" />
+        <label for="telefone"></label>
+        <input type="text" class="form-control" name="telefone" id="telefone" th:value="${contato.telefone}" />
+        </div>
+        
+        
         <input type="hidden" name="id" id="id" th:value="${contato.id}" />
-
-        <input type="submit" value="Salvar" />
+        
+        <div class="mb-3">
+        <button type="button" class="btn btn-success">Salvar </button>
+    </div>   
     </form>
-
-    <a href="/">Voltar ao início</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>
